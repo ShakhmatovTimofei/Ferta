@@ -23,15 +23,20 @@
                 <a href="index.html"><img src="img/logo.svg" alt="" class="header__logo"></a>   
                 <nav class="header__nav nav">
                     <ul class="nav__menu">
-                        <li class="nav__item"><a class="nav__link" href="">Услуги</a></li>
-                        <li class="nav__item"><a class="nav__link" href="">О нас</a></li>
-                        <li class="nav__item"><a class="nav__link" href="">Как работаем</a></li>
+                        <li class="nav__item"><a class="nav__link" href="#services">Услуги</a></li>
+                        <li class="nav__item"><a class="nav__link" href="#about-us">О нас</a></li>
+                        <li class="nav__item"><a class="nav__link" href="#start-working">Как работаем</a></li>
                     </ul>
                 </nav>
                 <div class="header__contact-block">
                     <a class="header__contacts" href="mailto:mail@info@fetra.pro">Info@ferta.pro</a>
                     <a class="header__contacts" href="tel:+7 903-796-46-06">+7 903-796-46-06</a>
-                    <a class="header__button button">Начать работу</a>
+                </div>
+                <div class="header__button button">Начать работу</div>
+                <div class="header__burger-button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
             <div class="header__content">
@@ -43,7 +48,7 @@
     </header>
     <div class="container">
         <main class="main">
-            <section class="main__services services">
+            <section id="services" class="main__services services">
                 <div class="services__text-block">
                     <h2 class="services__title title">Услуги</h2>
                     <p class="services__text text">Полный сервис услуг по транспортировке товаров, прямые договоры с морскими линиями, ж.д. операторами, терминалами и станциями, большинство услуг предоставляем под ключ</p>
@@ -74,7 +79,7 @@
                     </div>
                 </div>
             </section>
-            <section class="main__about-us about-us">
+            <section id="about-us" class="main__about-us about-us">
                 <div class="about-us__block">
                     <div class="about-us__visible-content">
                         <div class="about-us__visible-text">
@@ -232,7 +237,7 @@
                     </div>
                 </div>
             </section>
-            <section class="main__start-working start-working">
+            <section id="start-working" class="main__start-working start-working">
                 <h2 class="start-working__title title">Как начать работу?</h2>
                 <div class="start-working__row">
                     <div class="start-working__item">
@@ -295,10 +300,12 @@
     </div>
     <script src="js/animejs/lib/anime.min.js"></script>
     <script src="js/gradients-anim.js"></script>
+    <script src="js/buttons.js"></script>
     <script src="js/outlines-anim.js"></script>
     <script src="js/digits.js"></script>
     <script src="js/reasons.js"></script>
     <script src="js/services.js"></script>
     <script src="js/about-us.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>

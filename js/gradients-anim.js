@@ -14,7 +14,7 @@ function gradientAnimation(animatedElement, gradientObject) {
         startSecondColor: gradientObject.endSecondColor,
         duration: gradientObject.duration,
         easing: 'linear',
-        round: 1,
+        //round: 1,
         loop: true,
         direction: 'alternate',
         autoplay: false,
@@ -27,7 +27,8 @@ function gradientAnimation(animatedElement, gradientObject) {
                         ${gradientObject.additionalColor} ${gradientObject.firstColorPercent}, ${value1} 
                         ${gradientObject.secondColorPercent}, ${value2} ${gradientObject.thirdColorPercent})`;
                 } else {
-    
+                    animatedElement.style.backgroundImage = `linear-gradient(${gradientObject.degrees}, ${value1} 
+                        ${gradientObject.firstColorPercent}, ${value2} ${gradientObject.secondColorPercent})`;
                 }
             } else {
                 animatedElement.style.backgroundImage = `radial-gradient(${gradientObject.startFirstPercent} 
