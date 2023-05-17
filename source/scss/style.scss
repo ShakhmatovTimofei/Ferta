@@ -1448,8 +1448,13 @@ body {
             justify-self: end;
         }
 
-        &__row {
-            transition: background .5s ease-in-out;
+        &__row.visually-hidden {
+            
+        }
+
+        &__row.menu-active.visually-hidden {
+            opacity: 0;
+            transition: opacity .8s ease-in-out;
         }
 
         &__row.menu-active {
@@ -1460,7 +1465,8 @@ body {
             height: 100vh;
             padding-right: 20px;
             padding-left: 20px;
-            transition: background .5s ease-in-out;
+            opacity: 100;
+            transition: opacity .5s ease-in-out;
         }
 
         &__logo {
@@ -1476,12 +1482,12 @@ body {
 
         &__nav.visually-hidden {
             opacity: 0;
-            transition: opacity 2s ease;
+            transition: opacity .8s ease;
 		}
 
         &__button.visually-hidden {
             opacity: 0;
-            transition: opacity 2s ease;
+            transition: opacity .8s ease;
         }
 
         &__nav {
@@ -1535,6 +1541,13 @@ body {
 
         &__contact-block.menu-active &__contacts:last-child {
             margin: 0;
+        }
+        &__content {
+            transform: translateY(0);
+            transition: transform 1s ease;
+        }
+        &__content.menu-active {
+            transform: translateY(100%);
         }
     }
 
