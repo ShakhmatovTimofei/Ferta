@@ -49,6 +49,7 @@ body {
 .button.active {
   background: linear-gradient(271.55deg, #7E50C5 1.26%, #009FF3 98.78%);
   border: none;
+  padding-bottom: 2px;
 }
 
 .header .container {
