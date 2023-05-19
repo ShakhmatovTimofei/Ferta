@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("glide.core.scss");
 *, ::after, ::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1568,6 +1569,74 @@ body {
   }
   .nav__link {
     font-size: 30px;
+  }
+  .slider {
+    width: 100%;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+  }
+  .slider__list {
+    width: 100%;
+    overflow: hidden;
+  }
+  .slider__list.grab {
+    cursor: -webkit-grab;
+    cursor: grab;
+  }
+  .slider__list.grabbing {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  }
+  .slider__track {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .slider__buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 60px;
+  }
+  .slider__button {
+    display: block;
+    border-radius: 100%;
+    background-color: #424557;
+    margin-right: 10px;
+    border: none;
+    padding: 0;
+    width: 10px;
+    height: 10px;
+  }
+  .slider__button:last-child {
+    margin-right: 0;
+  }
+  .glide__bullet--active {
+    background-color: #FD0196;
+  }
+  .card {
+    width: 40%;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    margin-right: 20px;
+    z-index: -2;
+    margin-bottom: 0;
+  }
+  .card__img {
+    z-index: -1;
+  }
+  .card:last-child {
+    margin-right: 0;
+  }
+  .card:nth-child(2n) {
+    margin-right: 20px;
   }
 }
 @media (max-width: 679px) {

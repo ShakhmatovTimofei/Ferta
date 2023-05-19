@@ -1,3 +1,5 @@
+@import url("glide.core.scss");
+
 *, ::after, ::before {
     box-sizing: border-box;
 }
@@ -1424,6 +1426,7 @@ body {
     }
 }
 
+
 @media (max-width: 1023px) {
     .achievements__info-text {
         font-size: 18px;
@@ -1565,6 +1568,79 @@ body {
         &__link {
             font-size: 30px;
         }
+    }
+
+    .services {
+    }
+
+    .slider {
+        width: 100%;
+        user-select: none;
+        touch-action: pan-y;
+        &__list {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        &__list.grab {
+            cursor: grab;
+        }
+
+        &__list.grabbing {
+            cursor: grabbing;
+        }
+
+        &__track {
+            display: flex;
+        }
+
+        &__buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        &__button {
+            display: block;
+            border-radius: 100%;
+            background-color: #424557;
+            margin-right: 10px;
+            border: none;
+            padding: 0;
+            width: 10px;
+            height: 10px;
+        }
+
+        &__button:last-child {
+            margin-right: 0;
+        }
+        
+        
+    }
+
+    .glide {
+        &__bullet--active {
+            background-color: #FD0196;
+        }
+    }
+
+    .card {
+        width: 40%;
+        flex-shrink: 0;
+        margin-right: 20px;
+        z-index: -2;
+        margin-bottom: 0;
+        &__img {
+            z-index: -1;
+        }
+    }
+
+    .card:last-child {
+        margin-right: 0;
+    }
+
+    .card:nth-child(2n) {
+        margin-right: 20px;
     }
 }
 
