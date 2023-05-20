@@ -1,180 +1,152 @@
-const slider = document.querySelector('.slider'),
-      sliderList = document.querySelector('.slider__list'),
-      sliderTrack = document.querySelector('.slider__track'),
-      slides = document.querySelectorAll('.services__card');
-let  slideWidth = slides[0].offsetWidth,
-  slideIndex = 0,
-  posInit = 0,
-  posX1 = 0,
-  posX2 = 0,
-  posY1 = 0,
-  posY2 = 0,
-  posFinal = 0,
-  isSwipe = false,
-  isScroll = false,
-  allowSwipe = true,
-  transition = true,
-  nextTrf = 0,
-  prevTrf = 0,
-  lastTrf = --slides.length * slideWidth,
-  posThreshold = slides[0].offsetWidth * 0.35,
-  trfRegExp = /([-0-9.]+(?=px))/,
-  getEvent = function() {
-    return (event.type.search('touch') !== -1) ? event.touches[0] : event;
-  },
-  slide = function() {
-    if (transition) {
-      sliderTrack.style.transition = 'transform .5s';
-    }
-    sliderTrack.style.transform = `translate3d(-${slideIndex * slideWidth}px, 0px, 0px)`;
+const servicesBlock = document.querySelector('.services'),
+      cardsBlock = servicesBlock.querySelector('.services__cards-block'),
+      cards = cardsBlock.querySelectorAll('.card'),
+      cardsTitle = servicesBlock.querySelector('.services__text-block');
 
-    // prev.classList.toggle('disabled', slideIndex === 0);
-    // next.classList.toggle('disabled', slideIndex === --slides.length);
-  },
-  swipeStart = function() {
-    let evt = getEvent();
+const employeesBlock = document.querySelector('.employees'),
+      employeesTitle = employeesBlock.querySelector('.employees__title'),
+      employeesCardsBlock = employeesBlock.querySelector('.employees__cards'),
+      employeesCards = employeesCardsBlock.querySelectorAll('.employees__card');
 
-    if (allowSwipe) {
+const reasonsBlock = document.querySelector('.reasons'),
+      reasonsTitle = reasonsBlock.querySelector('.reasons__title'),
+      reasonsCardsBlock = reasonsBlock.querySelector('.reasons__reason-container');
 
-      transition = true;
+let sliderButton = '';
+const url = 'js/glide.js';
 
-      nextTrf = (slideIndex + 1) * -slideWidth;
-      prevTrf = (slideIndex - 1) * -slideWidth;
+screenWidth = document.body.clientWidth;
+if (screenWidth <= 1023) {
+    
 
-      posInit = posX1 = evt.clientX;
-      posY1 = evt.clientY;
+    cards.forEach(item => {
+        item.classList.add('glide__slide');
+    });
 
-      sliderTrack.style.transition = '';
-
-      document.addEventListener('touchmove', swipeAction);
-      document.addEventListener('mousemove', swipeAction);
-      document.addEventListener('touchend', swipeEnd);
-      document.addEventListener('mouseup', swipeEnd);
-
-      sliderList.classList.remove('grab');
-      sliderList.classList.add('grabbing');
-    }
-  },
-  swipeAction = function() {
-
-    let evt = getEvent(),
-      style = sliderTrack.style.transform,
-      transform = +style.match(trfRegExp)[0];
-
-    posX2 = posX1 - evt.clientX;
-    posX1 = evt.clientX;
-
-    posY2 = posY1 - evt.clientY;
-    posY1 = evt.clientY;
-
-    // определение действия свайп или скролл
-    if (!isSwipe && !isScroll) {
-      let posY = Math.abs(posY2);
-      if (posY > 7 || posX2 === 0) {
-        isScroll = true;
-        allowSwipe = false;
-      } else if (posY < 7) {
-        isSwipe = true;
-      }
+    for (let i = 0; i < cards.length; i++) {
+        sliderButton += `<button class="slider__button" data-glide-dir="=${i}"></button>`;
     }
 
-    if (isSwipe) {
-      // запрет ухода влево на первом слайде
-      if (slideIndex === 0) {
-        if (posInit < posX1) {
-          setTransform(transform, 0);
-          return;
-        } else {
-          allowSwipe = true;
-        }
-      }
+    servicesBlock.innerHTML = `
+        ${cardsTitle.outerHTML}
+        <div class="slider services-slider">
+            <div class="slider__list" data-glide-el="track">
+                <div class="slider__track">
+                    ${cardsBlock.innerHTML}
+                </div>
+            </div>
+            <div class="slider__buttons" data-glide-el="controls[nav]">
+                ${sliderButton}
+            </div>
+        </div>
+    `;
 
-      // запрет ухода вправо на последнем слайде
-      if (slideIndex === --slides.length) {
-        if (posInit > posX1) {
-          setTransform(transform, lastTrf);
-          return;
-        } else {
-          allowSwipe = true;
-        }
-      }
+    sliderButton = ''
 
-      // запрет протаскивания дальше одного слайда
-      if (posInit > posX1 && transform < nextTrf || posInit < posX1 && transform > prevTrf) {
-        reachEdge();
-        return;
-      }
+    employeesCards.forEach(item => {
+        item.classList.add('glide__slide');
+    });
 
-      // двигаем слайд
-      sliderTrack.style.transform = `translate3d(${transform - posX2}px, 0px, 0px)`;
+    for (let i = 0; i < employeesCards.length; i++) {
+        sliderButton += `<button class="slider__button" data-glide-dir="=${i}"></button>`;
     }
 
-  },
-  swipeEnd = function() {
-    posFinal = posInit - posX1;
+    employeesBlock.innerHTML = `
+        ${employeesTitle.outerHTML}
+        <div class="slider employees-slider">
+            <div class="slider__list" data-glide-el="track">
+                <div class="slider__track">
+                    ${employeesCardsBlock.innerHTML}
+                </div>
+            </div>
+            <div class="slider__buttons" data-glide-el="controls[nav]">
+                ${sliderButton}
+            </div>
+        </div>
+    `;
 
-    isScroll = false;
-    isSwipe = false;
+    sliderButton = ''
 
-    document.removeEventListener('touchmove', swipeAction);
-    document.removeEventListener('mousemove', swipeAction);
-    document.removeEventListener('touchend', swipeEnd);
-    document.removeEventListener('mouseup', swipeEnd);
+    reasonsCards.forEach(item => {
+        item.classList.add('glide__slide');
+    });
 
-    sliderList.classList.add('grab');
-    sliderList.classList.remove('grabbing');
-
-    if (allowSwipe) {
-      if (Math.abs(posFinal) > posThreshold) {
-        if (posInit < posX1) {
-          slideIndex--;
-        } else if (posInit > posX1) {
-          slideIndex++;
-        }
-      }
-
-      if (posInit !== posX1) {
-        allowSwipe = false;
-        slide();
-      } else {
-        allowSwipe = true;
-      }
-
-    } else {
-      allowSwipe = true;
+    for (let i = 0; i < reasonsCards.length; i++) {
+        sliderButton += `<button class="slider__button" data-glide-dir="=${i}"></button>`;
     }
 
-  },
-  setTransform = function(transform, comapreTransform) {
-    if (transform >= comapreTransform) {
-      if (transform > comapreTransform) {
-        sliderTrack.style.transform = `translate3d(${comapreTransform}px, 0px, 0px)`;
-      }
-    }
-    allowSwipe = false;
-  },
-  reachEdge = function() {
-    transition = false;
-    swipeEnd();
-    allowSwipe = true;
-  };
-sliderTrack.style.transform = 'translate3d(0px, 0px, 0px)';
-sliderList.classList.add('grab');
+    reasonsBlock.innerHTML = `
+        ${reasonsTitle.outerHTML}
+        <div class="slider reasons-slider">
+            <div class="slider__list" data-glide-el="track">
+                <div class="slider__track">
+                    ${reasonsCardsBlock.innerHTML}
+                </div>
+            </div>
+            <div class="slider__buttons" data-glide-el="controls[nav]">
+                ${sliderButton}
+            </div>
+        </div>
+    `;
 
-sliderTrack.addEventListener('transitionend', () => allowSwipe = true);
-slider.addEventListener('touchstart', swipeStart);
-slider.addEventListener('mousedown', swipeStart);
+    const servicesSlider = new Glide('.services-slider', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 2,
+        gap: 20
+    });
+    
+    const employeesSlider = new Glide('.employees-slider', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 2,
+        gap: 20
+    });
+    
+    const reasonsSlider = new Glide('.reasons-slider', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 2,
+        gap: 20
+    });
+    
+    servicesSlider.mount();
+    employeesSlider.mount();
+    reasonsSlider.mount();
 
-// arrows.addEventListener('click', function() {
-//   let target = event.target;
+    // const ServicesSlider = document.querySelector('.services-slider');
+    const servicesSliderTrack = document.querySelector('.slider__track');
+    // const cardImg = document.querySelectorAll('.card__img');
 
-//   if (target.classList.contains('next')) {
-//     slideIndex++;
-//   } else if (target.classList.contains('prev')) {
-//     slideIndex--;
-//   } else {
-//     return;
-//   }
+    // const servicesGradient = {
+    //     startFirstColor: '#4F1C60',
+    //     startSecondColor: '#8E1C6E',
+    //     endFirstColor: '#321C60',
+    //     endSecondColor: '#540D8C',
+    //     duration: 10000,
+    //     isLinearGradient: true,
+    //     isThreeColors: true,
+    //     degrees: '289.71deg',
+    //     additionalColor: '#2F1C4D',
+    //     firstColorPercent: '12.8%',
+    //     secondColorPercent: '58.94%',
+    //     thirdColorPercent: '97.99%'
+    // }
 
-//   slide();
-// });
+    // let servicesGradientAnimation;
+
+    // servicesSliderTrack.addEventListener('mouseover', (e) => {
+    //     if (e.target.classList.contains('services__card')) {
+    //         servicesGradientAnimation = new gradientAnimation(e.target, servicesGradient);
+    //         servicesGradientAnimation.startAnimation();
+    //         cardImg[0].classList.add('active');
+
+    //     } 
+    // });
+
+    // servicesSliderTrack.addEventListener('mouseout', (e) => {
+    //     servicesGradientAnimation.stopAnimation();
+    //     cardImg[0].classList.add('active');
+    // });
+}
+
