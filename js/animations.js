@@ -23,7 +23,6 @@ buttons.forEach(button => {
     const buttonGradientAnimation = new gradientAnimation(button, buttonGradient);
     button.addEventListener('mouseover', () => {
         buttonGradientAnimation.startAnimation();
-    
     });
     
     button.addEventListener('mouseout', () => {
