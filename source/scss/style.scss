@@ -375,19 +375,19 @@ body {
         }
 
         &__img_first {
-            mask-image: url('../../img/card1.png');
+            mask-image: url('../img/card1.png');
         }
 
         &__img_second {
-            mask-image: url('../../img/card2.png');
+            mask-image: url('../img/card2.png');
         }
 
         &__img_third {
-            mask-image: url('../../img/card3.png');
+            mask-image: url('../img/card3.png');
         }
 
         &__img_fourth {
-            mask-image: url('../../img/card4.png');
+            mask-image: url('../img/card4.png');
         }
 
         &__img.active {

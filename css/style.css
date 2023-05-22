@@ -358,20 +358,20 @@ body {
   background-color: #777A8D;
 }
 .card__img_first {
-  -webkit-mask-image: url("../../img/card1.png");
-          mask-image: url("../../img/card1.png");
+  -webkit-mask-image: url("../img/card1.png");
+          mask-image: url("../img/card1.png");
 }
 .card__img_second {
-  -webkit-mask-image: url("../../img/card2.png");
-          mask-image: url("../../img/card2.png");
+  -webkit-mask-image: url("../img/card2.png");
+          mask-image: url("../img/card2.png");
 }
 .card__img_third {
-  -webkit-mask-image: url("../../img/card3.png");
-          mask-image: url("../../img/card3.png");
+  -webkit-mask-image: url("../img/card3.png");
+          mask-image: url("../img/card3.png");
 }
 .card__img_fourth {
-  -webkit-mask-image: url("../../img/card4.png");
-          mask-image: url("../../img/card4.png");
+  -webkit-mask-image: url("../img/card4.png");
+          mask-image: url("../img/card4.png");
 }
 .card__img.active {
   -webkit-transform: rotate(360deg);
