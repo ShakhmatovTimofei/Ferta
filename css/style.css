@@ -1620,6 +1620,7 @@ body {
   }
   .card__text {
     width: 100%;
+    z-index: 10;
   }
   .slider {
     width: 100%;
@@ -1804,5 +1805,143 @@ body {
   }
   .header__title {
     font-size: 54px;
+  }
+  .header__contact-block {
+    display: none;
+  }
+  .header__img-bg {
+    left: -50px;
+    height: 560px;
+  }
+  .header__content {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header__title {
+    margin-bottom: 30px;
+  }
+  .header__subtitle {
+    font-size: 30px;
+    text-align: center;
+    width: 284px;
+    margin-bottom: 50px;
+  }
+  .services__title {
+    margin-top: 60px;
+  }
+  .services__text-block {
+    max-width: 100%;
+  }
+  .services__text {
+    width: 100%;
+  }
+  .about-us {
+    padding-top: 100px;
+  }
+  .about-us__block {
+    max-height: 591px;
+    padding: 50px 30px 30px 30px;
+  }
+  .about-us__logo {
+    width: 103px;
+    margin-bottom: 258px;
+  }
+  .about-us__text {
+    margin-top: 0;
+  }
+  .about-us__button {
+    margin-top: 30px;
+  }
+  .about-us__truck {
+    top: -20px;
+    right: -40px;
+  }
+  .delivery {
+    padding-top: 105px;
+  }
+  .delivery__title {
+    margin-bottom: 60px;
+    text-align: center;
+    width: 40%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .delivery__row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .delivery__item {
+    width: 100%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .delivery__item-text {
+    text-align: center;
+    width: 320px;
+  }
+  .delivery__subtitle {
+    font-size: 18px;
+  }
+  .delivery__item-title {
+    font-size: 36px;
+  }
+  .employees__title {
+    width: 320px;
+  }
+  .achievements__title {
+    text-align: center;
+  }
+  .achievements__digits {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .achievements__digit-block {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .achievements .achievements__digit-block:nth-child(3) .achievements__text {
+    width: 320px;
+  }
+  .achievements__digit {
+    font-size: 64px;
+    margin-bottom: 20px;
+  }
+  .achievements__text {
+    margin-top: 0;
+    text-align: center;
+  }
+  .achievements__digit-block:nth-child(2n) {
+    margin-right: 0;
+  }
+  .achievements__info-text {
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px) {
+  .about-us__truck {
+    top: 0;
+    right: -130px;
   }
 }

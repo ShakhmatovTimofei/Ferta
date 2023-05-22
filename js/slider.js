@@ -92,7 +92,12 @@ if (screenWidth <= 1023) {
         startAt: 0,
         perView: 2,
         gap: 20,
-        rewindDuration: 1000
+        rewindDuration: 1000,
+        breakpoints: {
+            655: {
+                perView: 1
+            }
+        }
     });
     
     const employeesSlider = new Glide('.employees-slider', {
@@ -100,8 +105,12 @@ if (screenWidth <= 1023) {
         startAt: 0,
         perView: 2,
         gap: 20,
-        rewindDuration: 1000
-
+        rewindDuration: 1000,
+        breakpoints: {
+            655: {
+                perView: 1
+            }
+        }
     });
     
     const reasonsSlider = new Glide('.reasons-slider', {
@@ -113,6 +122,9 @@ if (screenWidth <= 1023) {
         breakpoints : {
             870: {
                 perView: 2
+            },
+            655: {
+                perView: 1
             }
         }
     });
