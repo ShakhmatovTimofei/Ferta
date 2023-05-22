@@ -1,4 +1,4 @@
-@import url('../../css/glide.core.css');
+@import url('../css/glide.core.css');
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -1597,6 +1597,44 @@ body {
     }
 
     .services {
+        &__card {
+            padding: 40px 40px 40px 20px;
+        }
+
+        &__card:nth-child(1) .card__text {
+            width: 100%;
+        }
+
+        &__card:nth-child(3) .card__text {
+            width: 95%;
+        }
+
+        &__card:nth-child(3) {
+            justify-content: start;
+        }
+    }
+
+    .card {
+        justify-content: space-between;
+        &__img {
+            width: 250px;
+            height: 250px;
+            bottom: -60px;
+        }
+
+        &__button {
+            z-index: 10;
+            width: 100%;
+            text-align: center;
+        }
+
+        &__title {
+            width: 100%;
+        }
+
+        &__text {
+            width: 100%;
+        }
     }
 
     .slider {
@@ -1662,6 +1700,160 @@ body {
     .card:nth-child(2n) {
         margin-right: 20px;
     }
+
+    .about-us {
+        &__truck {
+            width: 549px;
+            top: -256px;
+            right: -124px;
+        }
+    
+        &__truck.decreased {
+            width: 434px;
+            top: -286px;
+            right: -104px;
+        }
+    }
+
+    .delivery {
+        padding-top: 117px;
+        &__item-text {
+            width: 280px;
+        }
+
+        &__item:nth-child(3) &__item-text, &__item:nth-child(4) &__item-text {
+            width: 260px;
+        }
+    }
+
+    .achievements {
+        &__digit-block:nth-child(2n) {
+            margin-right: 30px;
+        }
+
+        &__info-block {
+            padding: 50px 30px;
+        }
+
+        &__info-text {
+            font-size: 18px;
+        }
+
+        &__text {
+            width: 310px;
+        }
+    
+        &__digit-block:nth-child(2) &__text, &__digit-block:nth-child(4) &__text {
+            width: 310px;
+        }
+
+        .achievements__digit-block:nth-child(3) .achievements__text {
+            width: 310px;
+        }
+    }
+
+    .reasons {
+        &__img {
+            margin-left: -10px;
+            width: 70px;
+        }
+
+        &__text {
+            width: 230px;
+        }
+    }
+
+    .start-working {
+        &__row {
+            width: 100%;
+        }
+
+        &__item {
+            width: 50%;
+        }
+
+        &__subtitle {
+            font-size: 15px;
+        }
+    }
+
+    
+
+    .contacts {
+        flex-wrap: wrap;
+
+        &__contact-block:first-child {
+            margin-bottom: 40px;
+        }
+
+        &__subtitle {
+            font-size: 15px;
+        }
+    }
+}
+
+@media (max-width: 870px) {
+    .about-us {
+        &__block {
+            padding: 100px 76px 60px 30px;
+
+        }
+
+        &__block.opened {
+            max-height: 1397px;
+        }
+
+        &__visible-text {
+            width: 100%;
+        }
+
+        &__logo {
+            width: 226px;
+        }
+
+        &__text {
+            font-size: 18px;
+        }
+
+        &__hidden-text {
+            width: 100%;
+        }
+
+        &__hidden-text &__text {
+            width: 588px;
+        }
+
+        &__truck {
+            width: 367px;
+            height: 314px;
+            top: -95px;
+            right: -60px;
+        }
+    
+        &__truck.decreased {
+            width: 367px;
+            height: 314px;
+            top: -95px;
+            right: -60px;
+        }
+    }
+
+    .calc-price {
+        flex-direction: column-reverse;
+        padding: 50px 30px 80px 30px;
+        &__person {
+            align-self: center;
+            margin-bottom: 50px;
+        }
+
+        &__text {
+            width: 500px;
+        }
+    }
+}
+
+@media (max-width: 680px) {
+    
 }
 
 @media (max-width: 679px) {

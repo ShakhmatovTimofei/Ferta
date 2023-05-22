@@ -107,10 +107,14 @@ if (screenWidth <= 1023) {
     const reasonsSlider = new Glide('.reasons-slider', {
         type: 'slider',
         startAt: 0,
-        perView: 2,
+        perView: 3,
         gap: 20,
-        rewindDuration: 1500
-
+        rewindDuration: 1500,
+        breakpoints : {
+            870: {
+                perView: 2
+            }
+        }
     });
     
     servicesSlider.mount();

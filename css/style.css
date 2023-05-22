@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("../../css/glide.core.css");
+@import url("../css/glide.core.css");
 *, ::after, ::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1586,6 +1586,41 @@ body {
   .nav__link {
     font-size: 30px;
   }
+  .services__card {
+    padding: 40px 40px 40px 20px;
+  }
+  .services__card:nth-child(1) .card__text {
+    width: 100%;
+  }
+  .services__card:nth-child(3) .card__text {
+    width: 95%;
+  }
+  .services__card:nth-child(3) {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .card {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .card__img {
+    width: 250px;
+    height: 250px;
+    bottom: -60px;
+  }
+  .card__button {
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+  }
+  .card__title {
+    width: 100%;
+  }
+  .card__text {
+    width: 100%;
+  }
   .slider {
     width: 100%;
     -webkit-user-select: none;
@@ -1647,6 +1682,120 @@ body {
   }
   .card:nth-child(2n) {
     margin-right: 20px;
+  }
+  .about-us__truck {
+    width: 549px;
+    top: -256px;
+    right: -124px;
+  }
+  .about-us__truck.decreased {
+    width: 434px;
+    top: -286px;
+    right: -104px;
+  }
+  .delivery {
+    padding-top: 117px;
+  }
+  .delivery__item-text {
+    width: 280px;
+  }
+  .delivery__item:nth-child(3) .delivery__item-text, .delivery__item:nth-child(4) .delivery__item-text {
+    width: 260px;
+  }
+  .achievements__digit-block:nth-child(2n) {
+    margin-right: 30px;
+  }
+  .achievements__info-block {
+    padding: 50px 30px;
+  }
+  .achievements__info-text {
+    font-size: 18px;
+  }
+  .achievements__text {
+    width: 310px;
+  }
+  .achievements__digit-block:nth-child(2) .achievements__text, .achievements__digit-block:nth-child(4) .achievements__text {
+    width: 310px;
+  }
+  .achievements .achievements__digit-block:nth-child(3) .achievements__text {
+    width: 310px;
+  }
+  .reasons__img {
+    margin-left: -10px;
+    width: 70px;
+  }
+  .reasons__text {
+    width: 230px;
+  }
+  .start-working__row {
+    width: 100%;
+  }
+  .start-working__item {
+    width: 50%;
+  }
+  .start-working__subtitle {
+    font-size: 15px;
+  }
+  .contacts {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .contacts__contact-block:first-child {
+    margin-bottom: 40px;
+  }
+  .contacts__subtitle {
+    font-size: 15px;
+  }
+}
+@media (max-width: 870px) {
+  .about-us__block {
+    padding: 100px 76px 60px 30px;
+  }
+  .about-us__block.opened {
+    max-height: 1397px;
+  }
+  .about-us__visible-text {
+    width: 100%;
+  }
+  .about-us__logo {
+    width: 226px;
+  }
+  .about-us__text {
+    font-size: 18px;
+  }
+  .about-us__hidden-text {
+    width: 100%;
+  }
+  .about-us__hidden-text .about-us__text {
+    width: 588px;
+  }
+  .about-us__truck {
+    width: 367px;
+    height: 314px;
+    top: -95px;
+    right: -60px;
+  }
+  .about-us__truck.decreased {
+    width: 367px;
+    height: 314px;
+    top: -95px;
+    right: -60px;
+  }
+  .calc-price {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    padding: 50px 30px 80px 30px;
+  }
+  .calc-price__person {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-bottom: 50px;
+  }
+  .calc-price__text {
+    width: 500px;
   }
 }
 @media (max-width: 679px) {
