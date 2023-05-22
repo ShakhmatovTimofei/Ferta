@@ -88,24 +88,29 @@ if (screenWidth <= 1023) {
     `;
 
     const servicesSlider = new Glide('.services-slider', {
-        type: 'carousel',
+        type: 'slider',
         startAt: 0,
         perView: 2,
-        gap: 20
+        gap: 20,
+        rewindDuration: 1000
     });
     
     const employeesSlider = new Glide('.employees-slider', {
-        type: 'carousel',
+        type: 'slider',
         startAt: 0,
         perView: 2,
-        gap: 20
+        gap: 20,
+        rewindDuration: 1000
+
     });
     
     const reasonsSlider = new Glide('.reasons-slider', {
-        type: 'carousel',
+        type: 'slider',
         startAt: 0,
         perView: 2,
-        gap: 20
+        gap: 20,
+        rewindDuration: 1500
+
     });
     
     servicesSlider.mount();
@@ -145,6 +150,8 @@ if (screenWidth <= 1023) {
         });
     });
 
+    const reasonsCardsSlider = document.querySelectorAll('.reasons__reason');
+
     const gradientsArr = [ 
         { firstColor: '#592881', secondColor: '#2E1754' }, 
         { firstColor: '#826944', secondColor: '#282261' }, 
@@ -157,7 +164,7 @@ if (screenWidth <= 1023) {
         { firstColor: '#B200CF', secondColor: '#3E1445' }
     ];
 
-    reasonsCards.forEach((card, i) => {
+    reasonsCardsSlider.forEach((card, i) => {
         const reasonsGradient = {
             startFirstColor: gradientsArr[i].firstColor,
             startSecondColor: gradientsArr[i].secondColor,
@@ -173,10 +180,10 @@ if (screenWidth <= 1023) {
             firstColorPercent: '0%',
             secondColorPercent: '100%'
         }
+
         const reasonsGradientAnimation = new gradientAnimation(card, reasonsGradient);
 
         card.addEventListener('mouseover', () => {
-            console.log(card);
             reasonsGradientAnimation.startAnimation();
         });
 

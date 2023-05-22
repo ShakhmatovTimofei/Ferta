@@ -52,7 +52,6 @@ const servicesGradient = {
 servicesCards.forEach((card, i) => {
     const servicesGradientAnimation = new gradientAnimation(card, servicesGradient);
     card.addEventListener('mouseover', () => {
-        console.log('over')
         servicesGradientAnimation.startAnimation();
         cardImg[i].classList.add('active');
     });
