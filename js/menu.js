@@ -17,20 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-window.addEventListener('resize', () => {
-    screenWidth = document.body.clientWidth;
-    if (screenWidth <= 1023) {
-        navMenu.classList.add('hidden');
-        headerButton.classList.add('hidden');
-        navMenu.classList.add('visually-hidden');
-        headerButton.classList.add('visually-hidden');
-    } else if (navMenu.classList.contains('hidden')) {
-        navMenu.classList.remove('hidden');
-        headerButton.classList.remove('hidden');
-        navMenu.classList.remove('visually-hidden');
-        headerButton.classList.remove('visually-hidden');
-    }
-});
+// window.addEventListener('resize', () => {
+//     screenWidth = document.body.clientWidth;
+//     if (screenWidth <= 1023) {
+//         navMenu.classList.add('hidden');
+//         headerButton.classList.add('hidden');
+//         navMenu.classList.add('visually-hidden');
+//         headerButton.classList.add('visually-hidden');
+//     } else if (navMenu.classList.contains('hidden')) {
+//         navMenu.classList.remove('hidden');
+//         headerButton.classList.remove('hidden');
+//         navMenu.classList.remove('visually-hidden');
+//         headerButton.classList.remove('visually-hidden');
+//     }
+// });
 
 burgerButton.addEventListener('click', () => {
     burgerButton.classList.toggle('active');

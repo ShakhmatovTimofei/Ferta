@@ -63,7 +63,7 @@ body {
 
 .header {
     position: relative;
-    height: 100vh; /* возможно заменить? проверить как сверстаю хедер */
+    height: 100vh; 
     overflow: hidden;
     background: linear-gradient(180deg, rgba(27, 30, 45, 0) 0%, #1B1E2D 100%);
 
@@ -1056,6 +1056,7 @@ body {
         &__card {
             padding: 30px;
             padding-bottom: 50px;
+            border-radius: 20px;
         }
 
 
@@ -1491,7 +1492,7 @@ body {
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(4, auto);
             background-color: #1B1E2D;
-            height: 100vh;
+            height: 100%;
             padding-right: 20px;
             padding-left: 20px;
             opacity: 100;
@@ -1584,6 +1585,7 @@ body {
         &__menu {
             flex-direction: column;
             align-items: center;
+            margin: 0;
         }
 
         &__item {
@@ -1754,6 +1756,10 @@ body {
     }
 
     .reasons {
+        &__reason {
+            margin: 0;
+        }
+
         &__img {
             margin-left: -10px;
             width: 70px;
@@ -1858,11 +1864,17 @@ body {
         font-size: 28px;
     }
 
+    .title-h3 {
+        font-size: 24px;
+    }
+
     .header__title {
         font-size: 54px;
     }
 
     .header {
+        height: 560px;
+
         &__contact-block {
             display: none;
         }
@@ -1886,6 +1898,10 @@ body {
             width: 284px;
             margin-bottom: 50px;
         }
+
+        &__form-button {
+            padding: 21px 13px;
+        }
     }
 
     .services {
@@ -1905,8 +1921,8 @@ body {
     .about-us {
         padding-top: 100px;
         &__block {
-            max-height: 591px;
-            padding: 50px 30px 30px 30px;
+            max-height: 641px;
+            padding: 50px 30px 50px 30px;
         }
 
         &__logo {
@@ -1967,6 +1983,18 @@ body {
         &__title {
             width: 320px;
         }
+
+        &__img {
+            margin-bottom: 47px;
+        }
+
+        &__card {
+            padding: 30px 30px 50px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
     }
 
     .achievements {
@@ -2008,6 +2036,108 @@ body {
             font-size: 18px;
         }
     }
+
+    .reasons {
+        &__title {
+            margin-bottom: 40px;
+        }
+    }
+
+    .start-working {
+        &__subtitle {
+            font-size: 15px;
+            position: relative;
+        }
+
+        &__title {
+            font-size: 24px;
+        }
+
+        &__subtitle::before {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background-color: #FD0196;
+            position: absolute;
+            top: 5px;
+            left: -30px;
+        }
+
+        &__row {
+            flex-direction: column;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        &__row::before {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 580px;
+            background-color: #424557;
+            position: absolute;
+            left: 4px;
+            top: 5px;
+        }
+
+        &__item {
+            width: 100%;
+        }
+
+        &__item-text {
+            width: 300px;
+        }
+    }
+
+    .calc-price {
+        padding: 25px 20px 60px 20px;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        &__text-block {
+            width: 100%;
+        }
+
+        &__button {
+            align-self: center;
+        }
+
+        &__title {
+            width: 100%;
+        }
+
+        &__text {
+            width: 100%;
+        }
+    }
+
+    .contacts {
+        flex-direction: column;
+        &__subtitle {
+            font-size: 15px;
+        }
+
+        &__text {
+            font-size: 18px;
+        }
+
+        &__contact-block {
+            margin-bottom: 40px;
+        }
+
+        &__contact-block:last-child {
+            width: 260px;
+            margin-bottom: 0;
+        }
+    }
+
+    .slider {
+        &__buttons {
+            margin-top: 40px;
+        }
+    }
 }
 
 @media (max-width: 480px) {
@@ -2020,5 +2150,10 @@ body {
 }
 
 @media (max-width: 360px) {
-    
+    .header {
+        &__button {
+            width: 100%;
+            text-align: center;
+        }
+    }
 }

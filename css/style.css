@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("../css/glide.core.css");
 *, ::after, ::before {
   -webkit-box-sizing: border-box;
@@ -64,7 +63,7 @@ body {
 
 .header {
   position: relative;
-  height: 100vh; /* возможно заменить? проверить как сверстаю хедер */
+  height: 100vh;
   overflow: hidden;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 30, 45, 0)), to(#1B1E2D));
   background: linear-gradient(180deg, rgba(27, 30, 45, 0) 0%, #1B1E2D 100%);
@@ -1077,6 +1076,7 @@ body {
   .employees__card {
     padding: 30px;
     padding-bottom: 50px;
+    border-radius: 20px;
   }
   .employees__card-title {
     width: 255px;
@@ -1437,7 +1437,7 @@ body {
     -ms-grid-rows: (auto)[4];
     grid-template-rows: repeat(4, auto);
     background-color: #1B1E2D;
-    height: 100vh;
+    height: 100%;
     padding-right: 20px;
     padding-left: 20px;
     opacity: 100;
@@ -1578,6 +1578,7 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin: 0;
   }
   .nav__item {
     margin: 0;
@@ -1721,6 +1722,9 @@ body {
   .achievements .achievements__digit-block:nth-child(3) .achievements__text {
     width: 310px;
   }
+  .reasons__reason {
+    margin: 0;
+  }
   .reasons__img {
     margin-left: -10px;
     width: 70px;
@@ -1803,8 +1807,14 @@ body {
   .title {
     font-size: 28px;
   }
+  .title-h3 {
+    font-size: 24px;
+  }
   .header__title {
     font-size: 54px;
+  }
+  .header {
+    height: 560px;
   }
   .header__contact-block {
     display: none;
@@ -1827,6 +1837,9 @@ body {
     width: 284px;
     margin-bottom: 50px;
   }
+  .header__form-button {
+    padding: 21px 13px;
+  }
   .services__title {
     margin-top: 60px;
   }
@@ -1840,8 +1853,8 @@ body {
     padding-top: 100px;
   }
   .about-us__block {
-    max-height: 591px;
-    padding: 50px 30px 30px 30px;
+    max-height: 641px;
+    padding: 50px 30px 50px 30px;
   }
   .about-us__logo {
     width: 103px;
@@ -1896,6 +1909,23 @@ body {
   .employees__title {
     width: 320px;
   }
+  .employees__img {
+    margin-bottom: 47px;
+  }
+  .employees__card {
+    padding: 30px 30px 50px 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
   .achievements__title {
     text-align: center;
   }
@@ -1938,10 +1968,105 @@ body {
   .achievements__info-text {
     font-size: 18px;
   }
+  .reasons__title {
+    margin-bottom: 40px;
+  }
+  .start-working__subtitle {
+    font-size: 15px;
+    position: relative;
+  }
+  .start-working__title {
+    font-size: 24px;
+  }
+  .start-working__subtitle::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: #FD0196;
+    position: absolute;
+    top: 5px;
+    left: -30px;
+  }
+  .start-working__row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-left: 30px;
+    position: relative;
+  }
+  .start-working__row::before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 580px;
+    background-color: #424557;
+    position: absolute;
+    left: 4px;
+    top: 5px;
+  }
+  .start-working__item {
+    width: 100%;
+  }
+  .start-working__item-text {
+    width: 300px;
+  }
+  .calc-price {
+    padding: 25px 20px 60px 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  .calc-price__text-block {
+    width: 100%;
+  }
+  .calc-price__button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .calc-price__title {
+    width: 100%;
+  }
+  .calc-price__text {
+    width: 100%;
+  }
+  .contacts {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contacts__subtitle {
+    font-size: 15px;
+  }
+  .contacts__text {
+    font-size: 18px;
+  }
+  .contacts__contact-block {
+    margin-bottom: 40px;
+  }
+  .contacts__contact-block:last-child {
+    width: 260px;
+    margin-bottom: 0;
+  }
+  .slider__buttons {
+    margin-top: 40px;
+  }
 }
 @media (max-width: 480px) {
   .about-us__truck {
     top: 0;
     right: -130px;
+  }
+}
+@media (max-width: 360px) {
+  .header__button {
+    width: 100%;
+    text-align: center;
   }
 }
