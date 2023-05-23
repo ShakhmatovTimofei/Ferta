@@ -18,7 +18,6 @@ body {
 .container {
   max-width: 1900px;
   padding: 0 90px;
-  min-width: 360px;
   margin: 0 auto;
 }
 
@@ -1854,7 +1853,11 @@ body {
   }
   .about-us__block {
     max-height: 641px;
-    padding: 50px 30px 50px 30px;
+    padding: 30px 30px 50px 30px;
+  }
+  .about-us__block.opened {
+    max-height: 100%;
+    padding: 30px 30px 60px 30px;
   }
   .about-us__logo {
     width: 103px;
@@ -1870,13 +1873,24 @@ body {
     top: -20px;
     right: -40px;
   }
+  .about-us__truck.decreased {
+    top: -20px;
+    right: -40px;
+  }
+  .about-us__hidden-text {
+    height: 100%;
+  }
+  .about-us__hidden-text .about-us__text {
+    font-size: 15px;
+    width: 100%;
+  }
   .delivery {
     padding-top: 105px;
   }
   .delivery__title {
     margin-bottom: 60px;
     text-align: center;
-    width: 40%;
+    width: 100%;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
@@ -2060,6 +2074,10 @@ body {
 }
 @media (max-width: 480px) {
   .about-us__truck {
+    top: 0;
+    right: -130px;
+  }
+  .about-us__truck.decreased {
     top: 0;
     right: -130px;
   }

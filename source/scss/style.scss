@@ -18,7 +18,6 @@ body {
 .container {
     max-width: 1720px + 180px;
     padding: 0 90px;
-    min-width: 360px;
     margin: 0 auto;
 }
 
@@ -1922,7 +1921,12 @@ body {
         padding-top: 100px;
         &__block {
             max-height: 641px;
-            padding: 50px 30px 50px 30px;
+            padding: 30px 30px 50px 30px;
+        }
+
+        &__block.opened {
+            max-height: 100%;
+            padding: 30px 30px 60px 30px;
         }
 
         &__logo {
@@ -1942,6 +1946,20 @@ body {
             top: -20px;
             right: -40px;
         }
+
+        &__truck.decreased {
+            top: -20px;
+            right: -40px;
+        }
+
+        &__hidden-text {
+            height: 100%;
+        }
+
+        &__hidden-text &__text {
+            font-size: 15px;
+            width: 100%;
+        }
     }
 
     .delivery {
@@ -1949,7 +1967,7 @@ body {
         &__title {
             margin-bottom: 60px;
             text-align: center;
-            width: 40%;
+            width: 100%;
             align-self: center;
         }
 
@@ -2143,6 +2161,11 @@ body {
 @media (max-width: 480px) {
     .about-us {
         &__truck {
+            top: 0;
+            right: -130px;
+        }
+
+        &__truck.decreased {
             top: 0;
             right: -130px;
         }

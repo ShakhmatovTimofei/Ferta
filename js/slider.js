@@ -107,7 +107,7 @@ if (screenWidth <= 1023) {
         gap: 20,
         rewindDuration: 1000,
         breakpoints: {
-            655: {
+            610: {
                 perView: 1
             }
         }
