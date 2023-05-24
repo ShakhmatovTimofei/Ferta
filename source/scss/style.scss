@@ -13,6 +13,7 @@ body {
     background-color: #1B1E2D;
     color: #E8EBFF;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .container {
@@ -291,6 +292,17 @@ body {
             max-width: 448px;
 		}
 
+        &__text-block.scroll {
+            opacity: 0;
+            transform: translateX(1000px);
+        }
+
+        &__text-block.scroll-animation {
+            transform: translateX(0);
+            opacity: 100;
+            transition: all .5s ease-in;
+        }
+
 		&__title {
 		}
 
@@ -317,7 +329,35 @@ body {
             width: 49%;
             margin-right: 20px;
             margin-bottom: 20px;
+            
 		}
+
+        &__card.scroll {
+            opacity: 0;
+            transform: translateX(1000px);
+        }
+
+        &__card.scroll-animation {
+            opacity: 100;
+            transform: translateX(0);
+            transition: opacity .5s ease-in;
+            transition: transform .5s ease-in;
+        }
+
+        &__card:nth-child(2) {
+            transition: opacity .7s ease-in;
+            transition: transform .7s ease-in;
+        }
+
+        &__card:nth-child(3) {
+            transition: opacity .9s ease-in;
+            transition: transform .9s ease-in;
+        }
+
+        &__card:nth-child(4) {
+            transition: opacity 1.1s ease-in;
+            transition: transform 1.1s ease-in;
+        }
 
         &__card:nth-child(2n) {
             margin-right: 0;
@@ -609,6 +649,11 @@ body {
         border-radius: 40px;
         margin-right: 20px;
         max-width: 560px;
+    }
+
+    &__card.animation {
+        border: none;
+        padding: 54px;
     }
 
     &__card:last-child {
@@ -1463,6 +1508,7 @@ body {
     }
 
     .header {
+        height: 630px;
         &__video-bg {
             display: none;
         }
@@ -1967,7 +2013,7 @@ body {
         &__title {
             margin-bottom: 60px;
             text-align: center;
-            width: 100%;
+            width: 70%;
             align-self: center;
         }
 

@@ -138,6 +138,43 @@ anime({
     direction: 'normal'
 });
 
+//employees animation
+if (screenWidth > 1023) {
+    const employeesCards = document.querySelectorAll('.employees__card');
+
+    const employeesGradient = {
+        startFirstColor: '#4F1C60',
+        startSecondColor: '#8E1C6E',
+        endFirstColor: '#321C60',
+        endSecondColor: '#540D8C',
+        duration: 6000,
+        isLinearGradient: true,
+        isThreeColors: true,
+        degrees: '289.71deg',
+        additionalColor: '#2F1C4D',
+        firstColorPercent: '12.8%',
+        secondColorPercent: '58.94%',
+        thirdColorPercent: '97.99%'
+    }
+
+    employeesCards.forEach(card => {
+        const employeesGradientAnimation = new gradientAnimation(card, employeesGradient);
+
+        card.addEventListener('mouseover', (e) => {
+            employeesGradientAnimation.startAnimation();
+            card.style.borderColor = "#1B1E2D";
+        });
+    
+        card.addEventListener('mouseout', () => {
+            employeesGradientAnimation.stopAnimation();
+            card.style.background = `#1B1E2D`;
+            card.style.borderColor = "#3A3E53";
+        });
+    });
+}
+
+
+
 // achievments animation
 // nubmers anim
 const digits = document.querySelectorAll('.achievements__digit');

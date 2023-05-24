@@ -5,8 +5,8 @@ const servicesBlock = document.querySelector('.services'),
 
 const employeesBlock = document.querySelector('.employees'),
       employeesTitle = employeesBlock.querySelector('.employees__title'),
-      employeesCardsBlock = employeesBlock.querySelector('.employees__cards'),
-      employeesCards = employeesCardsBlock.querySelectorAll('.employees__card');
+      employeesCardsBlock = employeesBlock.querySelector('.employees__cards');
+let employeesCards = employeesCardsBlock.querySelectorAll('.employees__card');
 
 const reasonsBlock = document.querySelector('.reasons'),
       reasonsTitle = reasonsBlock.querySelector('.reasons__title'),
@@ -166,7 +166,9 @@ if (screenWidth <= 1023) {
         });
     });
 
-    const reasonsCardsSlider = document.querySelectorAll('.reasons__reason');
+    const reasonsCardsSlider = document.querySelectorAll('.reasons__reason'),
+          reasonsCardSlider = document.querySelector('.reasons-slider'),
+          reasonsCardSliderTrack = reasonsCardSlider.querySelector('.slider__track');
 
     const gradientsArr = [ 
         { firstColor: '#592881', secondColor: '#2E1754' }, 
@@ -196,17 +198,76 @@ if (screenWidth <= 1023) {
             firstColorPercent: '0%',
             secondColorPercent: '100%'
         }
-
+        console.log(card);
         const reasonsGradientAnimation = new gradientAnimation(card, reasonsGradient);
 
-        card.addEventListener('mouseover', () => {
-            reasonsGradientAnimation.startAnimation();
+        reasonsCardSliderTrack.addEventListener('touchmove', () => {
+            if (card.classList.contains('glide__slide--active')) {
+                reasonsGradientAnimation.startAnimation();
+            }
         });
 
-        card.addEventListener('mouseout', () => {
+        reasonsCardSliderTrack.addEventListener('touchend', () => {
+            if (card.classList.contains('glide__slide--active')) {
+                reasonsGradientAnimation.startAnimation();
+            } else {
+                reasonsGradientAnimation.stopAnimation();
+                card.style.backgroundImage = `linear-gradient(90deg, #32364F 0%, #26293B 100%)`;
+            }
+        });
+
+        reasonsCardSliderTrack.addEventListener('touchcancel', () => {
             reasonsGradientAnimation.stopAnimation();
             card.style.backgroundImage = `linear-gradient(90deg, #32364F 0%, #26293B 100%)`;
         });
+
+        // card.addEventListener('mouseover', () => {
+        // });
+
+        // card.addEventListener('mouseout', () => {
+        //     reasonsGradientAnimation.stopAnimation();
+        //     card.style.backgroundImage = `linear-gradient(90deg, #32364F 0%, #26293B 100%)`;
+        // });
+    });
+
+    employeesCards = document.querySelectorAll('.employees__card');
+    const employeesCardSlider = document.querySelector('.employees-slider'),
+          employeesCardSliderTrack = employeesCardSlider.querySelector('.slider__track');
+
+    const employeesGradient = {
+        startFirstColor: '#4F1C60',
+        startSecondColor: '#8E1C6E',
+        endFirstColor: '#321C60',
+        endSecondColor: '#540D8C',
+        duration: 6000,
+        isLinearGradient: true,
+        isThreeColors: true,
+        degrees: '289.71deg',
+        additionalColor: '#2F1C4D',
+        firstColorPercent: '12.8%',
+        secondColorPercent: '58.94%',
+        thirdColorPercent: '97.99%'
+    }
+
+    employeesCards.forEach(card => {
+        const employeesGradientAnimation = new gradientAnimation(card, employeesGradient);
+
+        employeesCardSliderTrack.addEventListener('touchmove', () => {
+            if (card.classList.contains('glide__slide--active')) {
+                employeesGradientAnimation.startAnimation();
+                card.style.borderColor = "#1B1E2D";
+            } else {
+                employeesGradientAnimation.stopAnimation();
+                card.style.background = `#1B1E2D`;
+                card.style.borderColor = "#3A3E53";
+            }
+        });
+
+        employeesCardSliderTrack.addEventListener('touchcancel', () => {
+            employeesGradientAnimation.stopAnimation();
+            card.style.background = `#1B1E2D`;
+            card.style.borderColor = "#3A3E53";
+        })
     });
 }
 
