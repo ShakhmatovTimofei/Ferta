@@ -31,8 +31,9 @@ buttons.forEach(button => {
 });
 
 // services cards animation
-const servicesCards = document.querySelectorAll('.services__card');
-const cardImg = document.querySelectorAll('.card__img');
+const services = document.querySelector('.services');
+const servicesCards = services.querySelectorAll('.services__card');
+const cardImg = services.querySelectorAll('.card__img');
 
 const servicesGradient = {
     startFirstColor: '#4F1C60',
@@ -69,6 +70,7 @@ const hiddenInfo = document.querySelector('.about-us__hidden-text');
 const truck = document.querySelector('.about-us__truck');
 const aboutUsBlock = document.querySelector('.about-us__block');
 const truckPath = document.querySelector('.about-us__truck path');
+const aboutUsBlockOutline = document.querySelector('.about-us__outline');
 
 learnMoreBtn.addEventListener('click', () => {
     hiddenInfo.classList.toggle('hidden');
@@ -99,84 +101,93 @@ const aboutUsGradient = {
 }
 
 const aboutUsGradientAnimation = new gradientAnimation(aboutUsBlock, aboutUsGradient);
-aboutUsGradientAnimation.startAnimation();
+function startAboutUsGradientAnimation() {
+    aboutUsGradientAnimation.startAnimation();
+}
 
+function stopAboutUsGradientAnimation() {
+    aboutUsGradientAnimation.stopAnimation();
+    aboutUsBlock.style.background = 'transparent';
+}
 // truck outline animation
-anime({
-    targets: truckPath,
-    strokeDashoffset: [1000, 0],
-    easing: 'easeInOutSine',
-    duration: 3000,
-    direction: 'normal',
-});
+let isAnimationFinished;
+
+function truckPathAnimation() {
+    setTimeout(startAboutUsGradientAnimation, 3500);
+    const aboutUsAnimation = anime.timeline({
+        easing: 'easeInOutSine',
+        direction: 'normal',
+    })
+    aboutUsAnimation
+    .add({
+        targets: aboutUsBlockOutline,
+        opacity: 1
+    })
+    .add({
+        targets: aboutUsBlockOutline,
+        strokeDashoffset: [5000, 0],
+    }, 1000)
+    .add({
+        targets: aboutUsBlockOutline,
+        opacity: 0
+    }, '+=1000')
+    .add({
+        targets: aboutUsBlock,
+        backgroundColor: '#4a1d5e',
+        duration: 2000
+    }, '-=2000')
+    .add({
+        targets: truckPath,
+        opacity: [0, 1],
+    }, '-=3000')
+    .add({
+        targets: truckPath,
+        strokeDashoffset: [1000, 0],
+        easing: 'easeInOutSine',
+        duration: 5000,
+        direction: 'normal',
+    }, '-=3000')
+}
 
 // delivery animation
+const delivery = document.querySelector('.delivery');
 const planetOutlinePath = document.querySelector('.delivery__planet-outline path'),
       planetImg = document.querySelector('.delivery__planet-img'),
       personPath = document.querySelector('.calc-price__person');
 
 // planet outline and image animation
-const planetAnim = anime.timeline({
-    easing: 'easeInOutSine',
-    duration: 4000,
-    direction: 'normal',
-})
-.add({
-    targets: planetOutlinePath,
-    strokeDashoffset: [6000, 0]
-})
-.add({
-    targets: planetOutlinePath,
-    opacity: 0
-}, 1000);
-
-anime({
-    targets: planetImg,
-    easing: 'easeInOutSine',
-    opacity: [0, 100],
-    duration: 5000,
-    direction: 'normal'
-});
-
-//employees animation
-if (screenWidth > 1023) {
-    const employeesCards = document.querySelectorAll('.employees__card');
-
-    const employeesGradient = {
-        startFirstColor: '#4F1C60',
-        startSecondColor: '#8E1C6E',
-        endFirstColor: '#321C60',
-        endSecondColor: '#540D8C',
-        duration: 6000,
-        isLinearGradient: true,
-        isThreeColors: true,
-        degrees: '289.71deg',
-        additionalColor: '#2F1C4D',
-        firstColorPercent: '12.8%',
-        secondColorPercent: '58.94%',
-        thirdColorPercent: '97.99%'
-    }
-
-    employeesCards.forEach(card => {
-        const employeesGradientAnimation = new gradientAnimation(card, employeesGradient);
-
-        card.addEventListener('mouseover', (e) => {
-            employeesGradientAnimation.startAnimation();
-            card.style.borderColor = "#1B1E2D";
-        });
-    
-        card.addEventListener('mouseout', () => {
-            employeesGradientAnimation.stopAnimation();
-            card.style.background = `#1B1E2D`;
-            card.style.borderColor = "#3A3E53";
-        });
-    });
+function planetOutlineAnimation() {
+    const planetAnim = anime.timeline({
+        easing: 'easeInOutSine',
+        duration: 5000,
+        direction: 'normal'
+    })
+    planetAnim
+    .add({
+        targets: planetOutlinePath,
+        opacity: 1,
+        duration: 100
+    })
+    .add({
+        targets: planetOutlinePath,
+        strokeDashoffset: [6000, 0],
+        duration: 4000
+    })
+    .add({
+        targets: planetImg,
+        duration: 5000,
+        opacity: [0, 1],
+    }, '-=5000')
+    .add({
+        targets: planetOutlinePath,
+        opacity: 0,
+        duration: 1000
+    }, '-=1000');
 }
-
-
 
 // achievments animation
 // nubmers anim
+const digitsBlock = document.querySelector('.digits');
 const digits = document.querySelectorAll('.achievements__digit');
 
 const number = {count: 0};
